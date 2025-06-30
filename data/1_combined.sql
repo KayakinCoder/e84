@@ -1,18 +1,18 @@
 -- get the normalized homeless id value and join it to our anxiety data
 with anxiety as (
     select
-        hid.id,
+        hc.id,
         ha.encounter_date,
         ha.anxiety_lvl
-    from public."0_ha" as ha
-        left join public."0_hid" as hid
-            on ha.homeless_id = hid.fmt2
+    from public.homeless_anxiety as ha
+        left join public.hid_control as hc
+            on ha.homeless_id = hc.fmt2
 ),
 
 -- get the normalized homeless id value and join it to our demographics data
 demographics as (
     select
-        hid.id,
+        hc.id,
         hd.registration_date,
         hd.first_name,
         hd.last_name,
@@ -21,9 +21,9 @@ demographics as (
         hd.gender,
         hd.race,
         hd.shelter
-    from public."0_hd" as hd
-        left join public."0_hid" as hid
-            on hd.hid = hid.fmt1
+    from public.homeless_demographics as hd
+        left join public.hid_control as hc
+            on hd.hid = hc.fmt1
 ),
 
 -- join our anxiety and demographics data
