@@ -29,7 +29,7 @@ demographics as (
 -- join our anxiety and demographics data
 combined as (
     select
-        ax.id as hid,
+        ax.id as hid_n,
         ax.encounter_date,
         ax.anxiety_lvl,
         dm.registration_date,
@@ -46,7 +46,7 @@ combined as (
 )
 
 select * from combined
-order by encounter_date asc, hid asc;
+order by encounter_date asc, hid_n asc;
 
 -- notes
   -- test/ddl: id, encounter_date, anxiety_lvl, shelter not null
