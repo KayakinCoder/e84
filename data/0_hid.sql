@@ -1,14 +1,8 @@
 create table "0_hid"
 (
-    id   integer not null
-        constraint "0_hid_pk"
-            primary key,
-    fmt1 varchar not null
-        constraint "0_hid_pk_2"
-            unique,
-    fmt2 varchar not null
-        constraint "0_hid_pk_3"
-            unique
+    id   integer not null constraint "0_hid_pk" primary key,
+    fmt1 varchar not null constraint "0_hid_pk_2" unique,
+    fmt2 varchar not null constraint "0_hid_pk_3" unique
 );
 
 INSERT INTO public."0_hid" (id, fmt1, fmt2) VALUES (1, '002-15', 'HM15-2');
