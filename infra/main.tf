@@ -9,7 +9,6 @@
 
 # s3 bucket for uploading anxiety data
 resource "aws_s3_bucket" "upload_anxiety" {
-  provider = aws
   bucket   = "raw-anxiety-3948593z82819dw4094"
 }
 
